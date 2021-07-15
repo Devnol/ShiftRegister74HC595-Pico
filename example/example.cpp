@@ -1,5 +1,6 @@
 /* 
 ShiftRegister74HC595-Pico example by Devnol, adapted from Timo Denk's Arduino example
+Wiring diagram example can be found in this folder's example_schematic files
 */
 #include "../src/ShiftRegister74HC595.h"
 #include <hardware/gpio.h>
