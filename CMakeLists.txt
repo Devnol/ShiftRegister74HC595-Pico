@@ -11,6 +11,4 @@ set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 
 add_subdirectory(src ShiftRegister74HC595)
-
-add_executable(example example/example.cpp)
-pico_add_extra_outputs(example)
+add_subdirectory(example SR_example)
