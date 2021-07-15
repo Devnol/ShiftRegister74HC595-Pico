@@ -1,5 +1,5 @@
 /* 
-ShiftRegister74HC595-Pico example by Devnol
+ShiftRegister74HC595-Pico example by Devnol, adapted from Timo Denk's Arduino example
 */
 #include "../src/ShiftRegister74HC595.h"
 #include <hardware/gpio.h>
@@ -27,7 +27,8 @@ set(12,1), 12 is 8 for the first segment plus 4 (the 4th segment on the second d
 #define LATCH_PIN 4 //latch pin
 #define DISPLAY_SIZE 3 //number of digits in display
 
-//initialize shift register, <3> is the number of digits in the display
+// create a global shift register object
+// parameters: <number of shift registers> (spi port, clock pin, data pin, latch pin)
 ShiftRegister74HC595<DISPLAY_SIZE> sr(SPI_PORT, SCK_PIN, SDI_PIN, LATCH_PIN);
 
 uint8_t disp_digits[10] = { //decimal numbers, each array index corresponds to the right number
@@ -69,6 +70,16 @@ int main() {
 	sr.set(12, 1); //set a specific pin to on, 
 	sleep_ms(1000);
 	sr.set(12, 0); //set a specific pin to off,
+ 
+  	// read pin (zero based, i.e. 6th pin is get(5))
+  	uint8_t stateOfPin5 = sr.get(5);
+  	sr.set(6, stateOfPin5);
+  	
+	// set pins without immediate update
+  	sr.setNoUpdate(0, 1);
+  	sr.setNoUpdate(1, 0);
+  	// at this point of time, pin 0 and 1 did not change yet
+  	sr.updateRegisters(); // update the pins to the set values
 
 	return 0;
 }
