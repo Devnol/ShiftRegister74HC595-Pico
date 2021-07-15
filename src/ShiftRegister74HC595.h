@@ -13,7 +13,7 @@ template<uint8_t Size>
 class ShiftRegister74HC595 
 {
 public:
-    ShiftRegister74HC595(spi_inst_t *spiPort, uint8_t latchPin);
+    ShiftRegister74HC595(spi_inst_t *spiPort, uint8_t sdiPin, uint8_t sckPin, uint8_t latchPin);
     
     void setAll(const uint8_t * digitalValues);
     uint8_t * getAll(); 
