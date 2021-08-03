@@ -1,10 +1,9 @@
 /*
-  ShiftRegister74HC595.hpp - Library for simplified control of 74HC595 shift registers.
-  Developed and maintained by Timo Denk and contributers, since Nov 2014.
-  Additional information is available at https://timodenk.com/blog/shift-register-arduino-library/
-  Released into the public domain.
-
-  Raspberry pi Pico port by Devnol
+    ShiftRegister74HC595.h - Library for simplified control of 74HC595 shift registers.
+    RP2040 Port by Devnol and contributors, developed and maintained since Jul 2021.
+    Original Arduino Version Developed and maintained by Timo Denk and contributors, since Nov 2014.
+    Additional information is available at https://timodenk.com/blog/shift-register-arduino-library/
+    For usage see /example/example.cpp in this repository
 */
 #include <cstring>
 #include "ShiftRegister74HC595.h"
